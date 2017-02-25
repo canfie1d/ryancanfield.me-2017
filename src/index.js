@@ -10,13 +10,6 @@ import Landing from './Containers/Landing';
 
 const store = createStore();
 
-// Inject stylus loader into webpack.config.dev.js
-// var req = require.context(, false, /\.styl$/);
-
-// var req = require.context("style-loader!css-loader!stylus-loader../somedir", false, /\.js$/);
-
-require('style-loader!css-loader!stylus-loader!../../config/webpack.config.dev.js');
-
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
