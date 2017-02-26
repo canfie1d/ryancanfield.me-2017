@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "helpful-react-scripts": "0.0.16"
+    "helpful-react-scripts": "0.0.16",
+    "lodash": "^4.17.4",
+    "redux-responsive": "^4.1.1"
   },
   "dependencies": {
     "react": "^15.4.2",
