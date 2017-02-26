@@ -87,7 +87,7 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
           <div className='branding__column'>
             <span className='branding__letter'>n</span>
           </div>
-          {this.props.browser.greaterThan.large ? this.renderBlankTiles(4) : null}
+          {this.props.browser.greaterThan.medium ? this.renderBlankTiles(4) : null}
         </div>
         <div className='branding__row'>
           <div className='branding__column'>

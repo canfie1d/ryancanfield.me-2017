@@ -5,17 +5,6 @@ import { browserHistory, Router } from 'react-router';
 import routes from './routes';
 import createStore from './Services/Store';
 import './App.styl';
-import WebFont from "webfontloader";
-
-let config: WebFont.Config = {
-  google: {
-    families: [
-      "Lato:400,900"
-    ]
-  }
-};
-
-WebFont.load(config);
 
 const store = createStore();
 
