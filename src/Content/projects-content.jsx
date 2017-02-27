@@ -13,51 +13,68 @@ let getPropsFromApplicationState = (state) => {
 const CLIENTS = [
   {
     title : 'eBay Enterprise',
-    icon  : 'Ebay'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/ebay-enterprise.png',
+    url   : ''
   },
   {
     title : 'Blue Cross Blue Shield',
-    icon  : 'Bcbs'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/bcbs.png',
+    url   : ''
   },
   {
     title : 'Arizona State University',
-    icon  : 'Asu'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/asu.png',
+    url   : 'http://pat.usmexpat.com'
   },
   {
     title : 'University of Arizona',
-    icon  : 'Uoa'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/UofA.png',
+    url   : 'http://researchaz.org'
   },
   {
     title : 'Northern Arizona University',
-    icon  : 'Nau'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/nau.png',
+    url   : 'http://researchaz.org'
   },
   {
     title : 'Hotelogical',
-    icon  : 'Hotelogical'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/hotelogical.png',
+    url   : 'http://hotelogical.com'
+  },
+  {
+    title : 'Hotels Ugogo',
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/hotels-ugogo.png',
+    url   : 'http://hotelsugogo.com'
   },
   {
     title : 'TruTankless',
-    icon  : 'Trutankless'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/trutankless.png',
+    url   : 'http://trutankless.com'
   },
   {
     title : 'BodeTree',
-    icon  : 'Bodetree'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/bodetree.png',
+    url   : 'http://bodetree.com'
   },
   {
     title : 'Beacon ID',
-    icon  : 'Beacon'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/beacon-id.png',
+    url   : ''
   },
   {
     title : 'Puppies.com',
-    icon  : 'Puppies'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/puppies.png',
+    url   : 'http://puppies.com'
   },
   {
     title : 'High Above',
-    icon  : 'Highabove'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/highabove.png',
+    url   : 'http://highabove.net'
   },
   {
     title : 'Carnival Cruiselines',
-    icon  : 'Carnival'
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/carnival.png',
+    url   : 'http://ocean.com'
   }
 ];
 

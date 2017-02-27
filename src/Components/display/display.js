@@ -30,23 +30,6 @@ const Display=React.createClass({
         menuActive : false
       });
     }
-
-  },
-
-  onPreviousClick() {
-    if (this.state.activeImage > 1) {
-      this.setState({
-        activeImage : this.state.activeImage - 1
-      });
-    }
-  },
-
-  onNextClick() {
-    if (this.state.activeImage < this.state.activeProject.images.length) {
-      this.setState({
-        activeImage : this.state.activeImage + 1
-      });
-    }
   },
 
   renderImages(project) {
@@ -84,6 +67,22 @@ const Display=React.createClass({
     return projects;
   },
 
+  onPreviousClick() {
+    if (this.state.activeImage > 1) {
+      this.setState({
+        activeImage : this.state.activeImage - 1
+      });
+    }
+  },
+
+  onNextClick() {
+    if (this.state.activeImage < this.state.activeProject.images.length) {
+      this.setState({
+        activeImage : this.state.activeImage + 1
+      });
+    }
+  },
+
   onMenuItemClick(index) {
     let currentProject=this.props.projects[index];
 
@@ -100,10 +99,10 @@ const Display=React.createClass({
 
     for (let i=0; i < this.props.projects.length; i++) {
       projectTitles.push(
-                <li key={i} className='display__menu__item' onClick={this.onMenuItemClick}>
-                    {this.props.projects[i].title}
-                </li>
-            );
+        <li key={i} className='display__menu__item' onClick={this.onMenuItemClick}>
+          {this.props.projects[i].title}
+        </li>
+      );
     }
 
     return projectTitles;
@@ -127,11 +126,11 @@ const Display=React.createClass({
 
     return [
       <div key='prev-button' className={classNames(classes, 'display__project-button--previous', buttonDisabledClass())} onClick={this.onPreviousClick}>
-                <Icon icon='Caret' color='white' className='display__project-button__icon' />
-            </div>,
+        <Icon icon='Caret' color='white' className='display__project-button__icon' />
+      </div>,
       <div key='next-button' className={classNames(classes, 'display__project-button--next', buttonDisabledClass())} onClick={this.onNextClick}>
-                <Icon icon='Caret' color='white' className='display__project-button__icon' />
-            </div>
+        <Icon icon='Caret' color='white' className='display__project-button__icon' />
+      </div>
     ];
   },
 
@@ -142,28 +141,27 @@ const Display=React.createClass({
     ];
 
     return (
-            <div className='display__body'>
-                <div className={classNames(menuButtonClasses)} onClick={this.toggleMenu}>
-                    MENU
-                </div>
-                <div className='display__inner-bezel'>
-                    <DisplayMenu
-                        projects={this.props.projects}
-                        activeProject={this.state.activeProject}
-                        onMenuItemClick={this.onMenuItemClick}
-                        menuActive={this.state.menuActive}
-                    />
-                    <div className='display'>
-                        {this.renderProjects()}
-                    </div>
-                </div>
-                <div className='display__button' />
-                <div className='display__base' />
-                {this.renderProjectButtons()}
-            </div>
-        );
+      <div className='display__body'>
+        <div className={classNames(menuButtonClasses)} onClick={this.toggleMenu}>
+            MENU
+        </div>
+        <div className='display__inner-bezel'>
+          <DisplayMenu
+            projects={this.props.projects}
+            activeProject={this.state.activeProject}
+            onMenuItemClick={this.onMenuItemClick}
+            menuActive={this.state.menuActive}
+          />
+          <div className='display'>
+            {this.renderProjects()}
+          </div>
+        </div>
+        <div className='display__button' />
+        <div className='display__base' />
+        {this.renderProjectButtons()}
+      </div>
+    );
   },
-
 });
 
 export default Display;

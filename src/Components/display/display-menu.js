@@ -17,7 +17,7 @@ let DisplayMenu = React.createClass({
 
     for (let i = 0; i < this.props.projects.length; i++) {
       projects.push(
-        <li key={i} tabIndex='1' className='display__menu__item' onClick={this.props.onMenuItemClick.bind(this, i)}>
+        <li key={i} tabIndex='1' className='display__menu__item' onClick={this.props.onMenuItemClick.bind(null, i)}>
           {this.props.projects[i].title}
         </li>
       );

@@ -4,15 +4,40 @@
 }
 
 .icon-list__item {
-  flexItem(1, 1, 25%);
+  flexItem(0, 1, 80%);
   position: relative;
-  margin-bottom: rem(40);
+  padding: 0 10%;
+  margin-bottom: rem(70);
+  text-align: center;
 
   &:hover {
     .icon-list__tooltip {
       transform: scaleY(1) translateX(-50%);
+      opacity: 1;
     }
   }
+
+  +min-screen($media-small) {
+    flexItem(0, 1, 50%);
+    padding: 0;
+  }
+
+  +min-screen($media-medium) {
+    flexItem(0, 1, 33%);
+  }
+
+  .icon-list__image {
+    box-sizing: border-box;
+    width: 100%;
+    display: block;
+    padding: 0 rem(50 10);
+
+    .image--logo {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
 }
 
 .icon-list__icon {
@@ -39,6 +64,8 @@
   width: 100%;
   text-align: center;
   transform: scaleY(0) translateX(-50%);
-  transition: transform 200ms ease;
+  opacity: 0;
+  transition: transform 200ms $ease-in-out-quint,
+              opacity 200ms ease;
   transform-origin: top;
 }
