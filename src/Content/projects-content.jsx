@@ -28,7 +28,7 @@ const CLIENTS = [
   },
   {
     title : 'University of Arizona',
-    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/UofA.png',
+    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/uoa.png',
     url   : 'http://researchaz.org'
   },
   {
@@ -56,26 +56,26 @@ const CLIENTS = [
     image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/bodetree.png',
     url   : 'http://bodetree.com'
   },
-  {
-    title : 'Beacon ID',
-    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/beacon-id.png',
-    url   : ''
-  },
-  {
-    title : 'Puppies.com',
-    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/puppies.png',
-    url   : 'http://puppies.com'
-  },
-  {
-    title : 'High Above',
-    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/highabove.png',
-    url   : 'http://highabove.net'
-  },
-  {
-    title : 'Carnival Cruiselines',
-    image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/carnival.png',
-    url   : 'http://ocean.com'
-  }
+  // {
+  //   title : 'Beacon ID',
+  //   image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/beacon-id.png',
+  //   url   : ''
+  // },
+  // {
+  //   title : 'Puppies.com',
+  //   image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/puppies.png',
+  //   url   : 'http://puppies.com'
+  // },
+  // {
+  //   title : 'High Above',
+  //   image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/highabove.png',
+  //   url   : 'http://highabove.net'
+  // },
+  // {
+  //   title : 'Carnival Cruiselines',
+  //   image : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/clients/carnival.png',
+  //   url   : 'http://ocean.com'
+  // }
 ];
 
 const PROJECTS = [
