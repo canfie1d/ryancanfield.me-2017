@@ -46,9 +46,8 @@ const ConceptsContent=React.createClass({
     for (let i=0; i < CARD_LINKS.length; i++) {
 
       links.push(
-        <li className='card__item'>
+        <li key={i} className='card__item'>
           <CardLink
-              key={i}
               title={CARD_LINKS[i].title}
               description={CARD_LINKS[i].description}
               imageUrl={CARD_LINKS[i].imageUrl}

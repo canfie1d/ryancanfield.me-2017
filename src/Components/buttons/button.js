@@ -32,7 +32,7 @@ let Button = React.createClass({
       href                  : null,
       target                : null,
       onClick               : null,
-      tabIndex              : 1
+      tabIndex              : '1'
     };
   },
 

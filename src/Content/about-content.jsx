@@ -31,7 +31,13 @@ const AboutContent = React.createClass({
                 <p className='page__p'>
                     I am very accustomed to using agile development methodology including daily stand-up, sprint based cadences, iterative and incremental development. I am comfortable with complex git workflows as well as kanban style issue tracking services.
                 </p>
-                <Button className='download-button' element='a' target='_blank' href='https://s3-us-west-2.amazonaws.com/ryancanfield.me-docs/R_Canfield_Resume_2016.pdf' color='white'>
+                <Button
+                  className='download-button'
+                  element='a'
+                  target='_blank'
+                  href='https://s3-us-west-2.amazonaws.com/ryancanfield.me-docs/R_Canfield_Resume_2016.pdf'
+                  color='white'
+                >
                     View Résumé PDF
                 </Button>
             </main>

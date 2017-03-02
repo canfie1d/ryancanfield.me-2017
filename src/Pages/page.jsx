@@ -14,19 +14,16 @@ const Page = React.createClass({
   displayName: 'Page',
 
   renderPage(currentPage) {
-
     switch (currentPage) {
-      case '/':
-        return <Menu />;
-      case '/Concepts':
+      case 'Concepts':
         return <Concepts />;
-      case '/Projects':
+      case 'Projects':
         return <Projects />;
-      case '/About':
+      case 'About':
         return <About />;
-      case '/Elsewhere':
+      case 'Elsewhere':
         return <Elsewhere />;
-      case '/Secret':
+      case 'secret':
         return <Secret />;
       default:
         return <Menu />;
@@ -35,7 +32,7 @@ const Page = React.createClass({
   },
 
   render() {
-    let currentPage = window.location.pathname;
+    let currentPage = window.location.pathname.slice(1);
     let pageClass = `${currentPage}-page`;
 
     let classes=[
