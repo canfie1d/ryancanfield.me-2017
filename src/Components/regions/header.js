@@ -1,7 +1,9 @@
-import React              from 'react';
-import classNames         from 'classnames';
-import { connect }        from 'react-redux';
-import Icon               from '../../Components/icon/icon';
+import React       from 'react';
+import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
+import classNames  from 'classnames';
+import Icon        from '../../Components/icon/icon';
+import BackButton  from '../../Components/buttons/back-button';
 
 let getPropsFromApplicationState=(state) => {
   return {
@@ -12,6 +14,10 @@ let getPropsFromApplicationState=(state) => {
 const Header=connect(getPropsFromApplicationState)(React.createClass({
 
   displayName: 'Header',
+
+  onBackClick() {
+    browserHistory.push('/');
+  },
 
   propTypes : {
     title      : React.PropTypes.string,
@@ -39,8 +45,9 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
     return (
             <header className='header'>
                 <div className={classNames(classes)}>
-                    {this.renderIcon()}
+                    <BackButton onClick={this.onBackClick} extraSmall={true} />
                     <h1 className='page__header__title'>{this.props.title}</h1>
+                    {this.renderIcon()}
                 </div>
             </header>
         );

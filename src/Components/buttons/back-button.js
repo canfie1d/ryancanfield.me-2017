@@ -7,14 +7,16 @@ let BackButton = React.createClass({
 
   propTypes: {
     onClick   : React.PropTypes.func,
-    staySmall : React.PropTypes.bool
+    staySmall : React.PropTypes.bool,
+    extraSmall: React.PropTypes.bool
   },
 
   render() {
     let classes = [
       'branding',
       'branding--back',
-      this.props.staySmall ? 'branding--small' : null
+      this.props.staySmall ? 'branding--small' : null,
+      this.props.extraSmall ? 'branding--x-small' : null
     ];
 
     return (
