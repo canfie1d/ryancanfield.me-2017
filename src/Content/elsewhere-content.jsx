@@ -1,33 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 import MenuList from '../Components/list/menu-list';
-
-const ELSEWHERE_ITEMS = [
-  {
-    title    : 'Email',
-    icon     : 'Email',
-    url      : 'mailto:ryancanfield@me.com',
-    external : true
-  },
-  {
-    title    : 'Github',
-    icon     : 'Github',
-    url      : 'http://www.github.com/canfie1d',
-    external : true
-  },
-  {
-    title    : 'Twitter',
-    icon     : 'Twitter',
-    url      : 'http://www.twitter.com/canfie1d',
-    external : true
-  },
-  {
-    title    : 'LinkedIn',
-    icon     : 'LinkedIn',
-    url      : 'http://www.linkedin.com/in/ryanmcanfield',
-    external : true
-  }
-];
+import { ELSEWHERE_ITEMS } from '../Services/Data';
 
 const ElsewhereContent = React.createClass({
 
