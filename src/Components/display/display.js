@@ -34,14 +34,14 @@ const Display=React.createClass({
     if (this.state.activeProject !== undefined) {
       return (
         <iframe
-          height='329'
-          scrolling='no'
+          className='pen-iframe'
+          height='100%'
+          scrolling='yes'
           title={this.state.activeProject.title}
-          src={`//codepen.io/canfie1d/embed/preview/${this.state.activeProject.id}/?height=329&theme-id=18046&default-tab=result&embed-version=2`}
+          src={`//codepen.io/canfie1d/embed/preview/${this.state.activeProject.id}/?theme-id=18046&default-tab=result&embed-version=2&height=500`}
           frameBorder='no'
           allowTransparency='true'
           allowFullScreen='false'
-          style={{width: '100%'}}
         />
       );
     }

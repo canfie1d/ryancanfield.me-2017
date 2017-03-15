@@ -13,14 +13,14 @@ const List = React.createClass({
     if (item.url !== '') {
       return (
         <a className='icon-list__image' href={item.url} target='_blank'>
-          <img className='image--logo' src={item.image} role='presentation' />
+          <img className='image--logo' src={item.image} alt={item.title} />
         </a>
       );
     }
     return (
       <span className='icon-list__image'>
-        <img className='image--logo' src={item.image} role='presentation' />
-    </span>
+        <img className='image--logo' src={item.image} alt={item.title} />
+      </span>
     );
   },
 

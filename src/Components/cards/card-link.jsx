@@ -17,7 +17,7 @@ const CardLink = React.createClass({
             <a href={this.props.url} target='_blank' className='card__link'>
                 <div className='card__row'>
                     <div className='card__column'>
-                        <img src={this.props.imageUrl} className='card__image' role="presentation" />
+                        <img src={this.props.imageUrl} className='card__image' alt={this.props.title} />
                     </div>
                     <div className='card__column'>
                         <span className='card__title'>
