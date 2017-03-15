@@ -1,30 +1,7 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
 import CardLink from '../Components/cards/card-link';
-
-const CARD_LINKS=[
-  {
-    title       : 'Process & Method',
-    description : 'An adaptation from the speech I gave at Phoenix Design Week’s Pecha Kucha talks.',
-    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/icons.png',
-    url         : 'https://medium.com/@Canfie1d/process-method-bddef9f5e47f',
-    length      : '6 min read'
-  },
-  {
-    title       : 'Embedded SVG icon sets and Reactjs',
-    description : 'How we implement icons at Synapse Studios',
-    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/sketch.png',
-    url         : 'https://medium.com/@Canfie1d/reactjs-and-embedded-svg-icons-1e6eed0dc16a',
-    length      : '4 min read'
-  },
-  {
-    title       : 'SMACSS/BEM edge case naming convention',
-    description : 'What do you do in cases where BEM methodology fails? What does the fallback naming convention look like?',
-    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/code.png',
-    url         : 'https://medium.com/@Canfie1d/smacss-bem-edge-case-naming-convention-73be902b1d30',
-    length      : '3 min read'
-  },
-];
+import { CARD_LINKS } from '../Services/Data';
 
 const ConceptsContent=React.createClass({
 
