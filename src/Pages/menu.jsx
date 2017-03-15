@@ -42,13 +42,13 @@ const MenuPage = connect(getPropsFromApplicationState)(React.createClass({
     ];
 
     return (
-            <div key='menu-page' className='page__content-container'>
-                <Branding />
-                <main className='page__content page__content--menu page__content--no-header'>
-                    <MenuList menuItems={NAV_ITEMS} />
-                </main>
-            </div>
-        );
+      <div key='menu-page' className='page__content-container'>
+        <Branding />
+        <main className='page__content page__content--menu page__content--no-header'>
+          <MenuList menuItems={NAV_ITEMS} />
+        </main>
+      </div>
+    );
   },
 
 }));

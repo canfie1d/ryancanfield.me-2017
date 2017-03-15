@@ -32,11 +32,10 @@ aspect-ratio($width, $height) {
     right    : rem(60);
     bottom   : rem(20);
 
-    background    : transparent;
+    background    : white;
     border        : 2px solid $white;
     border-radius : rem(5);
-    overflow-y    : auto;
-    background    : $gray--800;
+    overflow-y    : hidden;
 
     +min-screen($media-medium) {
         top      : rem(20);
@@ -182,7 +181,11 @@ aspect-ratio($width, $height) {
   transition-delay           : 750ms;
 
     &.display__menu__button--active {
-        top : rem(35);
+      top : rem(35);
+    }
+
+    &.display__menu__button--hidden {
+      display: none;
     }
 
     &:hover,
