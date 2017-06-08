@@ -14,10 +14,10 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
   displayName: 'Header',
 
   propTypes : {
-    title      : React.PropTypes.string,
-    icon       : React.PropTypes.string,
-    marginTop  : React.PropTypes.bool,
-    smallWidth : React.PropTypes.bool
+    title: React.PropTypes.string,
+    icon: React.PropTypes.string,
+    marginTop: React.PropTypes.bool,
+    smallWidth: React.PropTypes.bool
   },
 
   renderIcon() {
@@ -37,13 +37,13 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
     ];
 
     return (
-            <header className='header'>
-                <div className={classNames(classes)}>
-                    {this.renderIcon()}
-                    <h1 className='page__header__title'>{this.props.title}</h1>
-                </div>
-            </header>
-        );
+      <header className='header'>
+        <div className={classNames(classes)}>
+          {this.renderIcon()}
+          <h1 className='page__header__title'>{this.props.title}</h1>
+        </div>
+      </header>
+    );
   },
 
 }));

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "helpful-react-scripts": "0.0.23",
+    "helpful-react-scripts": "0.0.32",
     "lodash": "^4.17.4",
     "redux-responsive": "^4.1.1",
     "webfontloader": "^1.6.27"
