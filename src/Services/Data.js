@@ -130,6 +130,27 @@ export const PROJECTS = [
 
 export const CARD_LINKS = [
   {
+    title       : 'SVG icon sets in React with Rollup',
+    description : 'Follow up to "Embedded SVG icon sets and Reactjs"',
+    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/svg-rollup.png',
+    url         : 'https://medium.com/helpful-human/svg-icon-sets-in-react-with-rollup-cd10be8206a5',
+    length      : '2 min read'
+  },
+  {
+    title       : 'Improving User Consideration in Development',
+    description : 'While web designers consider end users throughout the design process, developers can get caught up in implementation details and lose focus on why they are writing code in the first place — users.',
+    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/user-consideration.png',
+    url         : 'https://medium.com/helpful-human/improving-user-consideration-in-development-604a4ddeb6dd',
+    length      : '4 min read'
+  },
+  {
+    title       : 'Creating a Custom, Maintainable React-Scripts Package',
+    description : 'When Facebook released Create React App, I was excited to be able to harness their knowledge of the build process in my applications.',
+    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/react-scripts.png',
+    url         : 'https://medium.com/helpful-human/creating-a-custom-maintainable-react-scripts-package-db6d16501a94',
+    length      : '4 min read'
+  },
+  {
     title       : 'Process & Method',
     description : 'An adaptation from the speech I gave at Phoenix Design Week’s Pecha Kucha talks.',
     imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/icons.png',
@@ -138,7 +159,7 @@ export const CARD_LINKS = [
   },
   {
     title       : 'Embedded SVG icon sets and Reactjs',
-    description : 'How we implement icons at Synapse Studios',
+    description : 'How I implemented icons at Synapse Studios',
     imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/sketch.png',
     url         : 'https://medium.com/@Canfie1d/reactjs-and-embedded-svg-icons-1e6eed0dc16a',
     length      : '4 min read'
