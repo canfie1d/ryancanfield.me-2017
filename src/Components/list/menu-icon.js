@@ -1,27 +1,17 @@
-import React              from 'react';
-import Icon               from '../icon/icon';
-import classNames         from 'classnames';
+import React from 'react';
+import Icon from '../icon/icon';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-const MenuIcon=React.createClass({
-
-  displayName: 'MenuIcon',
-
-  propTypes: {
-    icon : React.PropTypes.string.isRequired,
-    color: React.PropTypes.string.isRequired,
-    menuHovered: React.PropTypes.bool.isRequired
-  },
-
-  getDefaultProps() {
-    return {
-      icon : null
-    };
-  },
+export default class MenuIcon extends React.Component {
+  static defaultProps = {
+    icon : null
+  };
 
   renderIcon() {
     let iconColor=() => {
-      let icon=this.props.icon;
-      let color=this.props.color;
+      let icon  = this.props.icon;
+      let color = this.props.color;
 
       switch (icon) {
         case 'Projects':
@@ -37,7 +27,7 @@ const MenuIcon=React.createClass({
       }
     };
 
-    let classes=[
+    let classes = [
       'menu-icon',
       this.props.menuHovered ? 'menu-icon--active' : null
     ];
@@ -52,12 +42,16 @@ const MenuIcon=React.createClass({
         />
       </div>
     );
-  },
+  }
 
   render() {
     return this.renderIcon();
-  },
+  }
 
-});
+};
 
-export default MenuIcon;
+MenuIcon.PropTypes = {
+  icon : PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  menuHovered: PropTypes.bool.isRequired
+};

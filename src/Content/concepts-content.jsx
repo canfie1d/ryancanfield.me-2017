@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import CardLink from '../Components/cards/card-link';
 import { CARD_LINKS } from '../Services/Data';
 
-const ConceptsContent=React.createClass({
-
-  displayName: 'ConceptsContent',
+export default class ConceptsContent extends React.Component {
 
   componentDidMount() {
     var component=ReactDOM.findDOMNode(this);
@@ -15,7 +13,7 @@ const ConceptsContent=React.createClass({
       component.style.transition='opacity 2500ms';
       component.style.opacity=1;
     });
-  },
+  }
 
   renderCardLinks() {
     let links=[];
@@ -25,29 +23,26 @@ const ConceptsContent=React.createClass({
       links.push(
         <li key={i} className='card__item'>
           <CardLink
-              title={CARD_LINKS[i].title}
-              description={CARD_LINKS[i].description}
-              imageUrl={CARD_LINKS[i].imageUrl}
-              url={CARD_LINKS[i].url}
-              length={CARD_LINKS[i].length}
+            title={CARD_LINKS[i].title}
+            description={CARD_LINKS[i].description}
+            imageUrl={CARD_LINKS[i].imageUrl}
+            url={CARD_LINKS[i].url}
+            length={CARD_LINKS[i].length}
           />
         </li>
       );
     };
 
     return links;
-  },
+  }
 
   render() {
     return (
-            <main className='page__content'>
-                <ul className='card__list'>
-                  {this.renderCardLinks()}
-                </ul>
-            </main>
-        );
-  },
-
-});
-
-export default ConceptsContent;
+      <main className='page__content'>
+        <ul className='card__list'>
+          {this.renderCardLinks()}
+        </ul>
+      </main>
+    );
+  }
+};

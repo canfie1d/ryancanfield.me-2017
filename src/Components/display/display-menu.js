@@ -1,30 +1,22 @@
 import React       from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
-let DisplayMenu = React.createClass({
-
-  displayName: 'DisplayMenu',
-
-  propTypes: {
-    projects        : React.PropTypes.array,
-    activeProject   : React.PropTypes.object,
-    onMenuItemClick : React.PropTypes.func,
-    menuActive      : React.PropTypes.bool
-  },
+export default class displayMenu extends React.Component {
 
   renderMenuItems() {
     let projects = [];
 
     for (let i = 0; i < this.props.projects.length; i++) {
       projects.push(
-        <li key={i} tabIndex='1' className='display__menu__item' onClick={this.props.onMenuItemClick.bind(null, i)}>
+        <li key={i} tabIndex='0' className='display__menu__item' onClick={this.props.onMenuItemClick.bind(null, i)}>
           {this.props.projects[i].title}
         </li>
       );
     }
 
     return projects;
-  },
+  }
 
   render() {
     let classes = classNames({
@@ -41,8 +33,12 @@ let DisplayMenu = React.createClass({
         </div>
       </div>
     );
-  },
+  }
+};
 
-});
-
-export default DisplayMenu;
+displayMenu.propTypes = {
+  projects: PropTypes.array,
+  activeProject: PropTypes.object,
+  onMenuItemClick: PropTypes.func,
+  menuActive: PropTypes.bool
+};

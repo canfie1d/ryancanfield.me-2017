@@ -1,56 +1,56 @@
 import React              from 'react';
 import { Link }           from 'react-router';
-import { toggleMenuItem } from '../../Actions/menu-actions';
 import { connect }        from 'react-redux';
+import { toggleMenuItem } from '../../Actions/menu-actions';
 import MenuIcon           from './menu-icon.js';
 
-let getPropsFromApplicationState=(state) => {
+const mapStateToProps = ({ currentMenuItem, browser }) => ({ currentMenuItem, browser });
+
+const mapDispatchToProps = (dispatch) => {
   return {
-    currentMenuItem : state.menu.currentMenuItem,
-    browser: state.browser
+    toggleMenuItem: (item) => dispatch(toggleMenuItem(item))
   };
-};
+}
 
-const MenuList=connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'MenuList',
-
-  propTypes: {
-    menuItems : React.PropTypes.array.isRequired
-  },
+class MenuList extends React.Component {
+  constructor (props) {
+    super(props);
+    this.activeMenuItem = this.activeMenuItem.bind(this);
+    this.inactiveMenuItem = this.inactiveMenuItem.bind(this);
+  }
 
   componentWillUnmount() {
     this.inactiveMenuItem();
-  },
+  }
 
   activeMenuItem(title) {
-    this.props.dispatch(toggleMenuItem(title));
-  },
+    this.props.toggleMenuItem(title);
+  }
 
   inactiveMenuItem() {
-    this.props.dispatch(toggleMenuItem(''));
-  },
+    this.props.toggleMenuItem('');
+  }
 
   renderItems() {
     let items=[];
 
-    for (let i=0; i < this.props.menuItems.length; i++) {
+    for (let i = 0; i < this.props.menuItems.length; i++) {
       if (this.props.menuItems[i].external) {
         items.push(
           <li key={i} className='menu__item'>
             <a
-                key={i}
-                href={this.props.menuItems[i].url}
-                target={this.props.menuItems[i].url !== 'mailto:ryancanfield@me.com' ? '_blank' : '_self'}
-                className='menu__link'
-                onMouseOver={this.activeMenuItem.bind(null, this.props.menuItems[i].title)}
-                onMouseOut={this.inactiveMenuItem}
-                onClick={this.inactiveMenuItem}
-                onTouchEnd={this.inactiveMenuItem}
-                onFocus={this.activeMenuItem.bind(null, this.props.menuItems[i].title)}
-                onBlur={this.inactiveMenuItem}
+              key={i}
+              href={this.props.menuItems[i].url}
+              target={this.props.menuItems[i].url !== 'mailto:ryancanfield@me.com' ? '_blank' : '_self'}
+              className='menu__link'
+              onMouseOver={this.activeMenuItem.bind(null, this.props.menuItems[i].title)}
+              onMouseOut={this.inactiveMenuItem}
+              onClick={this.inactiveMenuItem}
+              onTouchEnd={this.inactiveMenuItem}
+              onFocus={this.activeMenuItem.bind(null, this.props.menuItems[i].title)}
+              onBlur={this.inactiveMenuItem}
             >
-                {this.props.menuItems[i].title}
+              {this.props.menuItems[i].title}
             </a>
           </li>
         );
@@ -58,17 +58,17 @@ const MenuList=connect(getPropsFromApplicationState)(React.createClass({
         items.push(
           <li key={i} className='menu__item'>
             <Link
-                key={i}
-                to={'/' + this.props.menuItems[i].url}
-                className='menu__link'
-                onFocus={this.activeMenuItem.bind(null, this.props.menuItems[i].url)}
-                onBlur={this.inactiveMenuItem}
-                onMouseOver={this.activeMenuItem.bind(null, this.props.menuItems[i].url)}
-                onMouseOut={this.inactiveMenuItem}
-                onMouseDown={this.inactiveMenuItem}
-                onTouchStart={this.inactiveMenuItem}
-                >
-                {this.props.menuItems[i].title}
+              key={i}
+              to={'/' + this.props.menuItems[i].url}
+              className='menu__link'
+              onFocus={this.activeMenuItem.bind(null, this.props.menuItems[i].url)}
+              onBlur={this.inactiveMenuItem}
+              onMouseOver={this.activeMenuItem.bind(null, this.props.menuItems[i].url)}
+              onMouseOut={this.inactiveMenuItem}
+              onMouseDown={this.inactiveMenuItem}
+              onTouchStart={this.inactiveMenuItem}
+              >
+              {this.props.menuItems[i].title}
             </Link>
           </li>
         );
@@ -76,31 +76,31 @@ const MenuList=connect(getPropsFromApplicationState)(React.createClass({
     }
 
     return items;
-  },
+  }
 
   renderIcon() {
     if (this.props.browser.greaterThan.extraSmall) {
       return (
         <MenuIcon
           icon={this.props.currentMenuItem}
-          color={this.props.currentMenuItem.toLowerCase()}
+          color={this.props.currentMenuItem ? this.props.currentMenuItem.toLowerCase() : null}
           menuHovered={this.props.currentMenuItem !== ''}
         />
       );
     }
-  },
+  }
 
   render() {
     return (
-      <nav className='menu' role='navigation'>
-          <ul className='menu__list'>
-              {this.renderItems()}
-          </ul>
-          {this.renderIcon()}
+      <nav className='menu'>
+        <ul className='menu__list'>
+          {this.renderItems()}
+        </ul>
+        {this.renderIcon()}
       </nav>
     );
-  },
+  }
 
-}));
+};
 
-export default MenuList;
+export default connect(mapStateToProps, mapDispatchToProps)(MenuList);

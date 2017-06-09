@@ -1,21 +1,22 @@
 import React       from 'react';
 import DisplayMenu from './display-menu';
 import classNames  from 'classnames';
+import PropTypes from 'prop-types';
 
-const Display=React.createClass({
 
-  displayName: 'Display',
+export default class Display extends React.Component {
 
-  propTypes: {
-    projects : React.PropTypes.array
-  },
+  constructor(props) {
+    super(props);
 
-  getInitialState() {
-    return {
+    this.state = {
       menuActive    : true,
       activeProject : undefined
     };
-  },
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.onMenuItemClick = this.onMenuItemClick.bind(this);
+  }
 
   toggleMenu() {
     if (!this.state.menuActive) {
@@ -28,7 +29,17 @@ const Display=React.createClass({
         menuActive : false
       });
     }
-  },
+  }
+
+  onMenuItemClick(index) {
+    let currentProject= this.props.projects[index];
+
+    this.setState({
+      activeProject : currentProject
+    });
+
+    this.toggleMenu();
+  }
 
   renderProject() {
     if (this.state.activeProject !== undefined) {
@@ -45,17 +56,7 @@ const Display=React.createClass({
         />
       );
     }
-  },
-
-  onMenuItemClick(index) {
-    let currentProject=this.props.projects[index];
-
-    this.setState({
-      activeProject : currentProject
-    });
-
-    this.toggleMenu();
-  },
+  }
 
   renderMenuItems() {
     let projectTitles=[];
@@ -69,7 +70,7 @@ const Display=React.createClass({
     }
 
     return projectTitles;
-  },
+  }
 
   render() {
     let menuButtonClasses=[
@@ -99,6 +100,8 @@ const Display=React.createClass({
       </div>
     );
   }
-});
+};
 
-export default Display;
+Display.propTypes = {
+  projects : PropTypes.array
+};

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { createResponsiveStateReducer } from 'redux-responsive';
-import menu from './menu-reducers';
+import currentMenuItem from './menu-reducer';
 
 export default combineReducers({
   browser: createResponsiveStateReducer({
@@ -12,6 +12,6 @@ export default combineReducers({
     large: 1279,
     extraLarge: 1399,
   }),
-  menu,
+  currentMenuItem,
   routing: routerReducer
 });

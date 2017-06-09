@@ -5,15 +5,9 @@ import Display      from '../Components/display/display';
 import List         from '../Components/list/list';
 import { PROJECTS, CLIENTS } from '../Services/Data';
 
-let getPropsFromApplicationState = (state) => {
-  return {
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ browser }) => ({ browser });
 
-const ProjectsContent = connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'ProjectsContent',
+class ProjectsContent extends React.Component {
 
   componentDidMount() {
     var component = ReactDOM.findDOMNode(this);
@@ -23,7 +17,7 @@ const ProjectsContent = connect(getPropsFromApplicationState)(React.createClass(
       component.style.transition = 'opacity 2500ms';
       component.style.opacity = 1;
     });
-  },
+  }
 
   renderDisplay() {
     if (this.props.browser.greaterThan.mediumSmall) {
@@ -31,7 +25,7 @@ const ProjectsContent = connect(getPropsFromApplicationState)(React.createClass(
         <Display projects={PROJECTS} />
       );
     }
-  },
+  }
 
   renderSubtitle() {
     if(this.props.browser.greaterThan.mediumSmall) {
@@ -39,7 +33,7 @@ const ProjectsContent = connect(getPropsFromApplicationState)(React.createClass(
         <h2 className='page__subtitle'>Clients</h2>
       );
     }
-  },
+  }
 
   render() {
     return (
@@ -49,8 +43,7 @@ const ProjectsContent = connect(getPropsFromApplicationState)(React.createClass(
         <List listItems={CLIENTS} />
       </main>
     );
-  },
+  }
+};
 
-}));
-
-export default ProjectsContent;
+export default connect(mapStateToProps)(ProjectsContent);

@@ -4,16 +4,9 @@ import MenuList from '../Components/list/menu-list';
 import Branding from '../Components/branding/branding';
 import { NAV_ITEMS } from '../Services/Data';
 
-let getPropsFromApplicationState=(state) => {
-  return {
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ browser }) => ({ browser });
 
-const MenuPage = connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'MenuPage',
-
+class MenuPage extends React.Component {
   render() {
     return (
       <div key='menu-page' className='page__content-container'>
@@ -23,8 +16,8 @@ const MenuPage = connect(getPropsFromApplicationState)(React.createClass({
         </main>
       </div>
     );
-  },
+  }
 
-}));
+};
 
-export default MenuPage;
+export default connect(mapStateToProps)(MenuPage);

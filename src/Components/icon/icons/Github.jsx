@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Github = React.createClass({
-
-  displayName: 'Github',
+export default class GitHub extends React.Component {
 
   render() {
     /* eslint-disable max-len */
@@ -12,8 +10,6 @@ const Github = React.createClass({
       </svg>
     );
     /* eslint-enable */
-  },
+  }
 
-});
-
-export default Github;
+};

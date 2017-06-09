@@ -1,24 +1,12 @@
-import React              from 'react';
-import classNames         from 'classnames';
-import { connect }        from 'react-redux';
-import Icon               from '../../Components/icon/icon';
+import React       from 'react';
+import classNames  from 'classnames';
+import { connect } from 'react-redux';
+import Icon        from '../../Components/icon/icon';
+import PropTypes   from 'prop-types';
 
-let getPropsFromApplicationState=(state) => {
-  return {
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ browser }) => ({ browser });
 
-const Header=connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'Header',
-
-  propTypes : {
-    title: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    marginTop: React.PropTypes.bool,
-    smallWidth: React.PropTypes.bool
-  },
+class Header extends React.Component {
 
   renderIcon() {
     if (this.props.browser.greaterThan.extraSmall) {
@@ -28,7 +16,7 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
         <Icon className='page__header__icon' icon={this.props.icon} size={iconSize} color='white' />
       );
     }
-  },
+  }
 
   render() {
     let classes=[
@@ -44,8 +32,15 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
         </div>
       </header>
     );
-  },
+  }
 
-}));
+};
 
-export default Header;
+export default connect(mapStateToProps)(Header);
+
+Header.PropTypes = {
+  title     : PropTypes.string,
+  icon      : PropTypes.string,
+  marginTop : PropTypes.bool,
+  smallWidth: PropTypes.bool
+};

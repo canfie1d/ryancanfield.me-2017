@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import MenuList from '../Components/list/menu-list';
 import { ELSEWHERE_ITEMS } from '../Services/Data';
 
-const ElsewhereContent = React.createClass({
-
-  displayName: 'ElsewhereContent',
+export default class ElsewhereContent extends React.Component {
 
   componentDidMount() {
     var component = ReactDOM.findDOMNode(this);
@@ -15,16 +13,13 @@ const ElsewhereContent = React.createClass({
       component.style.transition = 'opacity 2500ms';
       component.style.opacity = 1;
     });
-  },
+  }
 
   render() {
     return (
-            <main className='page__content page__content--menu page__content--no-header'>
-                <MenuList menuItems={ELSEWHERE_ITEMS} />
-            </main>
-        );
-  },
-
-});
-
-export default ElsewhereContent;
+      <main className='page__content page__content--menu page__content--no-header'>
+        <MenuList menuItems={ELSEWHERE_ITEMS} />
+      </main>
+    );
+  }
+};
