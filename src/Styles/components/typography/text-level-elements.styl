@@ -8,38 +8,17 @@
 
 .page__inline-a {
   @extend .bodyFont;
-  styledAnchor(rem(20), $white, $white);
+  styledAnchor(rem(20), $white, $aboutColor);
   line-height     : 1.5;
   text-decoration : none;
   white-space: nowrap;
-
-  &:hover,
-  &:focus {
-      .concepts-page & {
-          color : $conceptsColor;
-      }
-
-      .about-page & {
-          color : $aboutColor;
-      }
-
-      .projects-page & {
-          color : $projectsColor;
-      }
-
-      .elsewhere-page & {
-          color : $elsewhereColor;
-      }
-
-  }
-
 }
 
 ////////////////////////////
-//                       //
-//     Text-level 1      //
-//                       //
-///////////////////////////
+//                        //
+//     Text-level 1       //
+//                        //
+////////////////////////////
 
 // links
 .a {
