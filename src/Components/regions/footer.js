@@ -1,12 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Footer= React.createClass({
-
-  displayName: 'Footer',
-
-  propTypes : {
-    childArray : React.PropTypes.array
-  },
+export default class Footer extends React.Component {
 
   renderChildren() {
     if(this.props.childArray) {
@@ -22,18 +17,20 @@ const Footer= React.createClass({
     }
 
     return <div className='footer__column'>{this.props.children}</div>;
-  },
+  }
 
   render() {
     return (
-            <footer>
-                <div className='footer'>
-                    {this.renderChildren()}
-                </div>
-            </footer>
-        );
-  },
+      <footer>
+        <div className='footer'>
+          {this.renderChildren()}
+        </div>
+      </footer>
+    );
+  }
 
-});
+};
 
-export default Footer;
+Footer.PropTypes = {
+  childArray : PropTypes.array
+};

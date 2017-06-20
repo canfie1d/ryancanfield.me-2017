@@ -2,26 +2,26 @@ import React from 'react';
 import classNames from 'classnames';
 import Page from '../Pages/page';
 
-const site = React.createClass({
-
-  displayName: 'SiteLayout',
-
-  getInitialState() {
-    return {
-      hideFocusOutline : true
+export default class site extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hideFocusOutline: true
     };
-  },
+    this.hideFocusOutline = this.hideFocusOutline(this);
+    this.showFocusOutline = this.showFocusOutline(this);
+  }
 
   componentDidMount() {
-        // calculate the responsive state after the component has been mounted
+   // calculate the responsive state after the component has been mounted
     window.addEventListener('keydown', this.showFocusOutline);
     window.addEventListener('mousemove', this.hideFocusOutline);
-  },
+  }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.showFocusOutline);
     window.removeEventListener('mousemove', this.hideFocusOutline);
-  },
+  }
 
   showFocusOutline(event) {
     if (this.state.hideFocusOutline && event.keyCode === 9) {
@@ -29,7 +29,7 @@ const site = React.createClass({
         hideFocusOutline : false
       });
     }
-  },
+  }
 
   hideFocusOutline() {
     if (!this.state.hideFocusOutline) {
@@ -37,7 +37,7 @@ const site = React.createClass({
         hideFocusOutline : true
       });
     }
-  },
+  }
 
   render() {
     const classes = [
@@ -46,12 +46,9 @@ const site = React.createClass({
     ];
 
     return (
-        <div className={classNames(classes)}>
-          <Page />
-        </div>
-      );
-  },
-
-});
-
-export default site;
+      <div className={classNames(classes)}>
+        <Page />
+      </div>
+    );
+  }
+};

@@ -10,7 +10,7 @@ import { responsiveStoreEnhancer } from 'redux-responsive';
 let middleware = [ thunk, routerMiddleware(browserHistory) ];
 
 if (process.env.NODE_ENV !== 'production') {
-  let logger = createLogger();
+  let logger = createLogger({collapsed:true});
   middleware = [ ...middleware, logger ];
 }
 

@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { HOVER_MENU_ITEM } from '../Actions/menu-actions';
 
 let currentMenuItem = (state = '', action) => {
@@ -8,8 +7,4 @@ let currentMenuItem = (state = '', action) => {
   return state;
 };
 
-const menus = combineReducers({
-  currentMenuItem
-});
-
-export default menus;
+export default currentMenuItem;

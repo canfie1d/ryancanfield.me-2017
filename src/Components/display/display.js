@@ -1,23 +1,22 @@
 import React       from 'react';
 import DisplayMenu from './display-menu';
 import classNames  from 'classnames';
-import Icon        from '../../Components/icon/icon';
+import PropTypes from 'prop-types';
 
-const Display=React.createClass({
 
-  displayName: 'Display',
+export default class Display extends React.Component {
 
-  propTypes: {
-    projects : React.PropTypes.array
-  },
+  constructor(props) {
+    super(props);
 
-  getInitialState() {
-    return {
+    this.state = {
       menuActive    : true,
-      activeProject : this.props.projects[0],
-      activeImage   : 1
+      activeProject : undefined
     };
-  },
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.onMenuItemClick = this.onMenuItemClick.bind(this);
+  }
 
   toggleMenu() {
     if (!this.state.menuActive) {
@@ -30,69 +29,34 @@ const Display=React.createClass({
         menuActive : false
       });
     }
-  },
-
-  renderImages(project) {
-    let projectImages=[];
-
-    for (let i=0; i < project.images.length; i++) {
-      let classes=[
-        'project__image',
-        'project__image--' + this.state.activeImage + '-active'
-      ];
-
-      projectImages.push(
-          <img key={i} className={classNames(classes)} src={project.images[i].url} role="presentation" />
-      );
-    }
-
-    return projectImages;
-  },
-
-  renderProjects() {
-    let projects=[];
-
-    for (let i=0; i < this.props.projects.length; i++) {
-      let classes=[
-        'project__list',
-        'project__list--' + this.state.activeProject.id + '-active'
-      ];
-      projects.push(
-                <ul key={i} className={classNames(classes)}>
-                    {this.renderImages(this.props.projects[i])}
-                </ul>
-            );
-    }
-
-    return projects;
-  },
-
-  onPreviousClick() {
-    if (this.state.activeImage > 1) {
-      this.setState({
-        activeImage : this.state.activeImage - 1
-      });
-    }
-  },
-
-  onNextClick() {
-    if (this.state.activeImage < this.state.activeProject.images.length) {
-      this.setState({
-        activeImage : this.state.activeImage + 1
-      });
-    }
-  },
+  }
 
   onMenuItemClick(index) {
-    let currentProject=this.props.projects[index];
+    let currentProject= this.props.projects[index];
 
     this.setState({
-      activeProject : currentProject,
-      activeImage   : 1
+      activeProject : currentProject
     });
 
     this.toggleMenu();
-  },
+  }
+
+  renderProject() {
+    if (this.state.activeProject !== undefined) {
+      return (
+        <iframe
+          className='pen-iframe'
+          height='100%'
+          scrolling='yes'
+          title={this.state.activeProject.title}
+          src={`//codepen.io/canfie1d/embed/preview/${this.state.activeProject.id}/?theme-id=18046&default-tab=result&embed-version=2&height=500`}
+          frameBorder='no'
+          allowTransparency='true'
+          allowFullScreen='false'
+        />
+      );
+    }
+  }
 
   renderMenuItems() {
     let projectTitles=[];
@@ -106,38 +70,13 @@ const Display=React.createClass({
     }
 
     return projectTitles;
-  },
-
-  renderProjectButtons() {
-    let buttonDisabledClass=() => {
-        if(this.state.activeImage === this.state.activeProject.images.length) {
-          return 'display__project-button--previous--disabled';
-        } else if (this.state.activeImage === 1) {
-          return 'display__project-button--next--disabled';
-        }
-
-        return null;
-      },
-      buttonsActiveClass=this.state.menuActive ? null : 'display__project-button--active',
-      classes=[
-        'display__project-button',
-        buttonsActiveClass
-      ];
-
-    return [
-      <div key='prev-button' className={classNames(classes, 'display__project-button--previous', buttonDisabledClass())} onClick={this.onPreviousClick}>
-        <Icon icon='Caret' color='white' className='display__project-button__icon' />
-      </div>,
-      <div key='next-button' className={classNames(classes, 'display__project-button--next', buttonDisabledClass())} onClick={this.onNextClick}>
-        <Icon icon='Caret' color='white' className='display__project-button__icon' />
-      </div>
-    ];
-  },
+  }
 
   render() {
     let menuButtonClasses=[
       'display__menu__button',
-      this.state.menuActive ? 'display__menu__button--active' : null
+      this.state.menuActive ? 'display__menu__button--active' : null,
+      this.state.activeProject === undefined ? 'display__menu__button--hidden' : null
     ];
 
     return (
@@ -153,15 +92,16 @@ const Display=React.createClass({
             menuActive={this.state.menuActive}
           />
           <div className='display'>
-            {this.renderProjects()}
+            {this.renderProject()}
           </div>
         </div>
         <div className='display__button' />
         <div className='display__base' />
-        {this.renderProjectButtons()}
       </div>
     );
-  },
-});
+  }
+};
 
-export default Display;
+Display.propTypes = {
+  projects : PropTypes.array
+};

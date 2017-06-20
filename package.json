@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "helpful-react-scripts": "0.0.23",
+    "helpful-react-scripts": "1.0.7",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "redux-responsive": "^4.1.1",
     "webfontloader": "^1.6.27"
   },

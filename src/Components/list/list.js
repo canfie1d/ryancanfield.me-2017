@@ -1,28 +1,23 @@
 import React from 'react';
 import Icon  from '../icon/icon';
+import PropTypes from 'prop-types';
 
-const List = React.createClass({
-
-  displayName: 'List',
-
-  propTypes: {
-    listItems : React.PropTypes.array.isRequired
-  },
+export default class List extends React.Component {
 
   renderLink(item) {
     if (item.url !== '') {
       return (
-        <a className='icon-list__image' href={item.url} target='_blank'>
-          <img className='image--logo' src={item.image} role='presentation' />
+        <a className='icon-list__image' href={item.url} target='_blank' rel="noopener noreferrer">
+          <img className='image--logo' src={item.image} alt={item.title} />
         </a>
       );
     }
     return (
       <span className='icon-list__image'>
-        <img className='image--logo' src={item.image} role='presentation' />
-    </span>
+        <img className='image--logo' src={item.image} alt={item.title} />
+      </span>
     );
-  },
+  }
 
   renderItems() {
     let items = [];
@@ -48,7 +43,7 @@ const List = React.createClass({
     }
 
     return items;
-  },
+  }
 
   render() {
     return (
@@ -56,7 +51,9 @@ const List = React.createClass({
         {this.renderItems()}
       </ul>
     );
-  },
-});
+  }
+};
 
-export default List;
+List.PropTypes = {
+  listItems : PropTypes.array.isRequired
+};

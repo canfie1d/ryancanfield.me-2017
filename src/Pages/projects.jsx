@@ -6,19 +6,13 @@ import Header             from '../Components/regions/header';
 import Footer             from '../Components/regions/footer';
 import ProjectsContent    from '../Content/projects-content';
 
-let getPropsFromApplicationState=(state) => {
-  return {
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ browser }) => ({ browser });
 
-const ProjectsPage=connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'ProjectsPage',
+class ProjectsPage extends React.Component {
 
   onBackClick() {
     browserHistory.push('/');
-  },
+  }
 
   render() {
     return (
@@ -33,8 +27,8 @@ const ProjectsPage=connect(getPropsFromApplicationState)(React.createClass({
         </Footer>
       </div>
     );
-  },
+  }
 
-}));
+};
 
-export default ProjectsPage;
+export default connect(mapStateToProps)(ProjectsPage);

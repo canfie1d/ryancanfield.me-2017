@@ -1,16 +1,9 @@
 import React       from 'react';
 import { connect } from 'react-redux';
 
-let getPropsFromApplicationState = (state) => {
-  return {
-    currentMenuItem : state.menu.currentMenuItem,
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ currentMenuItem, browser }) => ({ currentMenuItem, browser });
 
-let Branding = connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'Branding',
+class Branding extends React.Component {
 
   onClick() {
     console.log("        IT'S A SECRET        ");
@@ -18,10 +11,10 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
     console.log("        🔥   👹   🔥         ");
     console.log("                             ");
     console.log("    ryancanfield.me/secret   ");
-  },
+  }
 
   letterWrapFactory(string) {
-    let newArray= [];
+    let newArray = [];
 
     for(let i = 0; i < string.length; i++) {
       newArray.push(
@@ -32,7 +25,7 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
     }
 
     return newArray;
-  },
+  }
 
   renderBlankTiles(count) {
     let tiles = [];
@@ -46,13 +39,13 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
     }
 
     return tiles;
-  },
+  }
 
   renderRemainingLetters() {
     if (this.props.browser.greaterThan.medium) {
       return this.letterWrapFactory('ield');
     }
-  },
+  }
 
   renderLastRow() {
     if (this.props.browser.lessThan.large) {
@@ -62,7 +55,7 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
         </div>
       );
     }
-  },
+  }
 
   render() {
     let letterTextColor = 'branding__letter--' + this.props.currentMenuItem;
@@ -107,8 +100,7 @@ let Branding = connect(getPropsFromApplicationState)(React.createClass({
         {this.renderLastRow()}
       </div>
     );
-  },
+  }
+};
 
-}));
-
-export default Branding;
+export default connect(mapStateToProps)(Branding);

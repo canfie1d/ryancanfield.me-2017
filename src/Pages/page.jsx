@@ -9,9 +9,7 @@ import Projects from './projects';
 import Secret from './secret';
 /* eslint-enable no-unused-vars */
 
-const Page = React.createClass({
-
-  displayName: 'Page',
+export default class Page extends React.Component {
 
   renderPage(currentPage) {
     switch (currentPage) {
@@ -29,7 +27,7 @@ const Page = React.createClass({
         return <Menu />;
     }
 
-  },
+  }
 
   render() {
     let currentPage = window.location.pathname.slice(1);
@@ -45,8 +43,5 @@ const Page = React.createClass({
         {this.renderPage(currentPage)}
       </div>
     );
-  },
-
-});
-
-export default Page;
+  }
+};

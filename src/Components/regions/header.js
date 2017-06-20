@@ -1,30 +1,18 @@
 import React       from 'react';
-import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import classNames  from 'classnames';
-import Icon        from '../../Components/icon/icon';
-import BackButton  from '../../Components/buttons/back-button';
+import { connect } from 'react-redux';
+import Icon        from '../icon/icon';
+import PropTypes   from 'prop-types';
+import { browserHistory } from 'react-router';
+import BackButton from '../buttons/back-button';
 
-let getPropsFromApplicationState=(state) => {
-  return {
-    browser : state.browser
-  };
-};
+const mapStateToProps = ({ browser }) => ({ browser });
 
-const Header=connect(getPropsFromApplicationState)(React.createClass({
-
-  displayName: 'Header',
-
+class Header extends React.Component {
+  
   onBackClick() {
     browserHistory.push('/');
-  },
-
-  propTypes : {
-    title      : React.PropTypes.string,
-    icon       : React.PropTypes.string,
-    marginTop  : React.PropTypes.bool,
-    smallWidth : React.PropTypes.bool
-  },
+  }
 
   renderIcon() {
     if (this.props.browser.greaterThan.extraSmall) {
@@ -34,7 +22,7 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
         <Icon className='page__header__icon' icon={this.props.icon} size={iconSize} color='white' />
       );
     }
-  },
+  }
 
   render() {
     let classes=[
@@ -43,16 +31,23 @@ const Header=connect(getPropsFromApplicationState)(React.createClass({
     ];
 
     return (
-            <header className='header'>
-                <div className={classNames(classes)}>
-                    <BackButton onClick={this.onBackClick} extraSmall={true} />
-                    <h1 className='page__header__title'>{this.props.title}</h1>
-                    {this.renderIcon()}
-                </div>
-            </header>
-        );
-  },
+        <header className='header'>
+            <div className={classNames(classes)}>
+                <BackButton onClick={this.onBackClick} extraSmall={true} />
+                <h1 className='page__header__title'>{this.props.title}</h1>
+                {this.renderIcon()}
+            </div>
+        </header>
+    );
+  }
 
-}));
+};
 
-export default Header;
+export default connect(mapStateToProps)(Header);
+
+Header.PropTypes = {
+  title     : PropTypes.string,
+  icon      : PropTypes.string,
+  marginTop : PropTypes.bool,
+  smallWidth: PropTypes.bool
+};

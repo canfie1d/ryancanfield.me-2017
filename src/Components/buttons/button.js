@@ -1,43 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-let Button = React.createClass({
+export default class Button extends React.Component {
 
-  displayName : 'Button',
+  static defaultProps = {
+    element : 'button',
+    componentCSSClassName : 'button',
+    disabled : false,
+    className : null,
+    href : null,
+    target : null,
+    onClick : null,
+    tabIndex : '0'
+  };
 
-  propTypes : {
-    element : React.PropTypes.oneOf([
-      'a',
-      'button',
-      'input',
-      'span',
-      'div'
-    ]),
-    componentCSSClassName : React.PropTypes.string,
-    disabled              : React.PropTypes.bool,
-    className             : React.PropTypes.string,
-    href                  : React.PropTypes.string,
-    target                : React.PropTypes.string,
-    onClick               : React.PropTypes.func,
-    tabIndex              : React.PropTypes.string,
-    children              : React.PropTypes.any
-  },
-
-  getDefaultProps()
-    {
-    return {
-      element               : 'button',
-      componentCSSClassName : 'button',
-      disabled              : false,
-      className             : null,
-      href                  : null,
-      target                : null,
-      onClick               : null,
-      tabIndex              : '1'
-    };
-  },
-
-  render()
-    {
+  render() {
     let Component,
       ComponentChildren,
       classes,
@@ -47,33 +24,50 @@ let Button = React.createClass({
       this.props.componentCSSClassName,
       this.props.className,
       this.props.disabled ?
-                this.props.componentCSSClassName + '--disabled' : null
+        this.props.componentCSSClassName + '--disabled' : null
     ].join(' ');
 
     childClassName = this.props.componentCSSClassName + '__children';
 
     ComponentChildren = React.createElement(
-            'span',
-            {className : childClassName},
-            this.props.children
-        );
+        'span',
+        {className : childClassName},
+        this.props.children
+    );
 
     Component = React.createElement(
-            this.props.element,
+      this.props.element,
       {
         className : classes,
         href      : this.props.href,
         target    : this.props.target,
+        ref       : 'noopener noreferrer',
         onClick   : this.props.onClick,
         disabled  : this.props.disabled,
         tabIndex  : this.props.tabIndex
       },
-            ComponentChildren
-        );
+      ComponentChildren
+    );
 
     return Component;
   }
 
-});
+};
 
-export default Button;
+Button.propTypes = {
+  element : PropTypes.oneOf([
+    'a',
+    'button',
+    'input',
+    'span',
+    'div'
+  ]),
+  componentCSSClassName : PropTypes.string,
+  disabled              : PropTypes.bool,
+  className             : PropTypes.string,
+  href                  : PropTypes.string,
+  target                : PropTypes.string,
+  onClick               : PropTypes.func,
+  tabIndex              : PropTypes.string,
+  children              : PropTypes.any
+};
