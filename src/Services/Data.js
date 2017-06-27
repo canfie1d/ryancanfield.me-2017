@@ -95,36 +95,36 @@ export const CLIENTS = [
 
 export const PROJECTS = [
   {
-    title  : 'Data Reformatter',
-    id     : 'peNLNP'
+    title  : 'Chat Bubbles',
+    id     : 'GmMaVx'
   },
   {
     title  : 'Expanding Hamburger Navigation Icon',
     id     : 'pvewaX'
   },
   {
-    title  : 'Expanding Menu Effect',
-    id     : 'xgGdra'
+    title  : 'Bottom Card Navigation',
+    id     : 'EagxGR'
   },
   {
     title  : 'Dropdown Mini Menu',
     id     : 'vymmZR'
   },
   {
-    title  : 'Data Reformatter',
-    id     : 'peNLNP'
+    title  : 'Playing Card Flop Animation',
+    id     : 'ulDvK'
   },
   {
-    title  : 'Expanding Hamburger Navigation Icon',
-    id     : 'pvewaX'
+    title  : 'Sneaky Modal Effect',
+    id     : 'zwWOwj'
   },
   {
     title  : 'Expanding Menu Effect',
     id     : 'xgGdra'
   },
   {
-    title  : 'Dropdown Mini Menu',
-    id     : 'vymmZR'
+    title  : 'Knockout Text on Button',
+    id     : 'rmbdgg'
   }
 ];
 

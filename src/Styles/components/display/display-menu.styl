@@ -6,22 +6,23 @@
     bottom   : 0;
     left     : 0;
     width    : 100%;
+    background: $white;
+    z-index  : 1;
+    transform: translateY(-100%);
+    transition: transform 300ms $ease-in-out-quint 300ms;
+
+    &.display__menu__wrapper--active {
+        transform : translateY(0);
+    }
+
 }
 
 .display__menu {
     flexContainer();
     justify-content: space-around;
     flexItem(1, 1, auto);
-    transform  : translateY(-100%);
-    transition : transform 300ms $ease-in-out-quint 300ms;
-    z-index    : 1;
-    overflow-y  : auto;
-    background  : $white;
-    padding  : rem(10);
-
-    &.display__menu--active {
-        transform : translateY(0);
-    }
+    overflow-y: auto;
+    padding: rem(10);
 }
 
 .display__menu__item {
@@ -30,4 +31,12 @@
   flexItem(1, 1, auto);
   padding : rem(20);
   cursor  : pointer;
+
+  &:first-of-type {
+    margin-top: rem(150);
+  }
+
+  &:last-of-type {
+    margin-bottom: rem(150);
+  }
 }

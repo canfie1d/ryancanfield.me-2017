@@ -20,13 +20,13 @@ export default class displayMenu extends React.Component {
 
   render() {
     let classes = classNames({
-      'display__menu'         : true,
-      'display__menu--active' : this.props.menuActive
+      'display__menu__wrapper': true,
+      'display__menu__wrapper--active': this.props.menuActive
     });
 
     return (
-      <div className='display__menu__wrapper'>
-        <div className={classes}>
+      <div className={classes}>
+        <div className='display__menu'>
           <ul className='display__menu__list'>
             {this.renderMenuItems()}
           </ul>

@@ -42,7 +42,7 @@ class MenuList extends React.Component {
               key={i}
               href={this.props.menuItems[i].url}
               target={this.props.menuItems[i].url !== 'mailto:ryancanfield@me.com' ? '_blank' : '_self'}
-              className='menu__link'
+              className='menu__link menu__link--external'
               onMouseOver={this.activeMenuItem.bind(null, this.props.menuItems[i].title)}
               onMouseOut={this.inactiveMenuItem}
               onClick={this.inactiveMenuItem}
