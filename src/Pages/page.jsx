@@ -7,6 +7,8 @@ import Elsewhere from './elsewhere';
 import Menu from './menu';
 import Projects from './projects';
 import Secret from './secret';
+import heartImg from '../Assets/images/heart.png';
+
 /* eslint-enable no-unused-vars */
 
 export default class Page extends React.Component {
@@ -29,6 +31,18 @@ export default class Page extends React.Component {
 
   }
 
+  renderHeart() {
+    const itemCollected = localStorage.getItem("itemCollected");
+    
+    if (itemCollected === 'heart') {
+      return (
+        <div className='heart-container'>
+          <img src={heartImg} alt='Heart Container in 8-bit style' />
+        </div>
+      );
+    }
+  }
+
   render() {
     let currentPage = window.location.pathname.slice(1);
     let pageClass = `${currentPage}-page`;
@@ -40,6 +54,7 @@ export default class Page extends React.Component {
 
     return (
       <div className={classNames(classes)}>
+        {this.renderHeart()}
         {this.renderPage(currentPage)}
       </div>
     );

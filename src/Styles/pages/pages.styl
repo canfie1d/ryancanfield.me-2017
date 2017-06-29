@@ -7,7 +7,20 @@
 // *******************************************
 
 .page {
+  position: relative;
   background: $gray--800;
+
+  .heart-container {
+    position: fixed;
+    top: rem(20);
+    right: rem(20);
+    z-index: 3;
+
+    img {
+      height: rem(20);
+      width: rem(20);
+    }
+  }
 }
 
 .menu-page,
@@ -85,5 +98,39 @@
 }
 
 .secret {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  height: calc(100vh - 20px);
+
+  .secret__row {
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5vh;
+    height: rem(48);
+
+    &:first-of-type {
+      padding-top : 10vh;
+      padding-bottom: 0;
+    }
+    
+    &:nth-of-type(2) {
+      padding-bottom: 5vh;
+    }
+
+    &:last-of-type {
+      padding-top: 7vh;
+    }
+
+  }
+  
+  .title {
+    color: $white;
+    font-size: rem(32);
     font-family: 'zeldaFont';
+    text-align: center;
+    margin-bottom: rem(40);
+    margin: 0;
+  }
 }
