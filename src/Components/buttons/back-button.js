@@ -8,7 +8,8 @@ export default class BackButton extends React.Component {
     let classes = [
       'branding',
       'branding--back',
-      this.props.staySmall ? 'branding--small' : null
+      this.props.staySmall ? 'branding--small' : null,
+      this.props.extraSmall ? 'branding--x-small' : null
     ];
 
     return (

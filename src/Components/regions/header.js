@@ -1,12 +1,18 @@
 import React       from 'react';
 import classNames  from 'classnames';
 import { connect } from 'react-redux';
-import Icon        from '../../Components/icon/icon';
+import Icon        from '../icon/icon';
 import PropTypes   from 'prop-types';
+import { browserHistory } from 'react-router';
+import BackButton from '../buttons/back-button';
 
 const mapStateToProps = ({ browser }) => ({ browser });
 
 class Header extends React.Component {
+  
+  onBackClick() {
+    browserHistory.push('/');
+  }
 
   renderIcon() {
     if (this.props.browser.greaterThan.extraSmall) {
@@ -25,12 +31,13 @@ class Header extends React.Component {
     ];
 
     return (
-      <header className='header'>
-        <div className={classNames(classes)}>
-          {this.renderIcon()}
-          <h1 className='page__header__title'>{this.props.title}</h1>
-        </div>
-      </header>
+        <header className='header'>
+            <div className={classNames(classes)}>
+                <BackButton onClick={this.onBackClick} extraSmall={true} />
+                <h1 className='page__header__title'>{this.props.title}</h1>
+                {this.renderIcon()}
+            </div>
+        </header>
     );
   }
 
