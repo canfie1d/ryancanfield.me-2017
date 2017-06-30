@@ -14,8 +14,56 @@
     <title>ryancanfield.me</title>
     <meta name="theme-color" content="#2f3634">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+    <link rel="manifest" href="%PUBLIC_URL%/asset-manifest.json">
+    <noscript>
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+        .body {
+          background: #ddd;
+        }
+        .noscript-container {
+          width: 100%;
+          padding: 50px 10px;
+        }
+        .noscript-title {
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 28px;
+          text-align: center;
+          max-width: 420px;
+          margin: 0 auto 20px;
+          color: #666;
+        }
+        .noscript-info {
+          font-family: Helvetica, Arial, sans-serif;
+          font-size: 18px;
+          text-align: center;
+          line-height: 1.5;
+          max-width: 420px;
+          margin: auto;
+          color: #666;
+        }
+        .noscript-link {
+          color: #333;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
+    <noscript>
+      <div class='noscript-container'>
+        <h1 class='noscript-title'>Ryan Canfield specializes in user interface design and development.<h1>
+        <p class='noscript-info'>You can reach him by <a class='noscript-link' href='mailto:ryanmcanfield+website@gmail.com'>email</a> or <a class='noscript-link' href='https://www.twitter.com/canfie1d' target='_blank' rel='noopener noreferrer'>Twitter.
+      </div>
+    </noscript>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>
