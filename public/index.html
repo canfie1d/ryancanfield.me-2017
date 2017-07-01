@@ -10,11 +10,11 @@
     <meta property="og:url" content="http://ryancanfield.me">
     <meta property="og:type" content="website">
     <meta property="og:description" content="This website serves as the portfolio of UI engineer, Ryan Canfield.">
-    <meta property="og:image" content="%PUBLIC_URL%/og-image.png">
+    <meta property="og:image" content="%PUBLIC_URL%/media/og-image.png">
     <title>ryancanfield.me</title>
     <meta name="theme-color" content="#2f3634">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
-    <link rel="manifest" href="%PUBLIC_URL%/asset-manifest.json">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <noscript>
       <style>
         * {
@@ -59,10 +59,9 @@
     </noscript>
     <div id="root"></div>
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('%PUBLIC_URL%/service-worker.js');
       }
     </script>
   </body>

@@ -1,0 +1,26 @@
+{
+  "short_name": "RyanCanfield",
+  "name": "Ryan Canfield",
+  "description": "Ryan Canfield- Design & development",
+  "icons": [
+    {
+      "src": "./media/launcher-icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "./media/launcher-icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "./media/launcher-icon-4x.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#333",
+  "theme_color": "#2f3634"
+}
