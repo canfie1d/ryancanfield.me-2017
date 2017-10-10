@@ -1,6 +1,4 @@
 import React    from 'react';
-import ReactDOM from 'react-dom';
-import { browserHistory } from 'react-router';
 import linkImg from '../Assets/images/link.png';
 import oldManImg from '../Assets/images/oldman.png';
 import fireImg from '../Assets/images/fire.png';
@@ -15,7 +13,7 @@ export default class SecretContent extends React.Component {
 
     this.state = {
       itemSelected: false
-    }
+    };
 
     this.playTune = this.playTune.bind(this);
     this.renderAudio = this.renderAudio.bind(this);
@@ -23,7 +21,7 @@ export default class SecretContent extends React.Component {
   }
 
   componentDidMount() {
-    var component = ReactDOM.findDOMNode(this);
+    var component = this.domNode;
 
     component.style.opacity = 0;
     window.requestAnimationFrame(() => {
@@ -36,13 +34,13 @@ export default class SecretContent extends React.Component {
   addHeart() {
     this.playTune();
     localStorage.setItem('itemCollected', 'heart');
-    setTimeout(function() { browserHistory.push('/'); }, 2000);
+    setTimeout(function() { this.props.history.push('/'); }, 2000);
   }
 
   addLetter() {
     this.playTune();
     localStorage.setItem('itemCollected', 'letter');
-    setTimeout(function() { browserHistory.push('/'); }, 2000);
+    setTimeout(function() { this.props.history.push('/'); }, 2000);
   }
 
   playTune() {
@@ -60,7 +58,7 @@ export default class SecretContent extends React.Component {
       localStorage.getItem("itemCollected") === 'heart';
 
     return (
-      <main className='page__content secret'>
+      <main className='page__content secret' ref={(main) => { this.domNode = main; }}>
         {this.renderAudio()}
         <div className='secret__row'>
           {itemCollected ? null : <h1 className='title'>TAKE ANY ONE YOU WANT.</h1>}

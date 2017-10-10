@@ -1,11 +1,15 @@
 import React              from 'react';
 import Button             from '../Components/buttons/button';
-import { browserHistory } from 'react-router';
 
 export default class Page404 extends React.Component {
 
-  onMenuClick() {
-    browserHistory.push('/');
+  constructor(props) {
+    super(props);
+    this.onBackClick = this.onBackClick.bind(this);
+  }
+
+  onBackClick() {
+    this.props.history.push('/');
   }
 
   render() {

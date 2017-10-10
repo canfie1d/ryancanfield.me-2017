@@ -1,5 +1,4 @@
 import React              from 'react';
-import { browserHistory } from 'react-router';
 import { connect }        from 'react-redux';
 import BackButton         from '../Components/buttons/back-button';
 import Header             from '../Components/regions/header';
@@ -10,8 +9,13 @@ const mapStateToProps = ({ currentMenuItem }) => ({ currentMenuItem });
 
 class AboutPage extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.onBackClick = this.onBackClick.bind(this);
+  }
+
   onBackClick() {
-    browserHistory.push('/');
+    this.props.history.push('/');
   }
 
   render() {
@@ -19,7 +23,7 @@ class AboutPage extends React.Component {
       <div key='about-page' className='page__content-container'>
         <Header
           title='About Me'
-          icon='About'
+          icon='about'
           smallWidth
         />
         <AboutContent />

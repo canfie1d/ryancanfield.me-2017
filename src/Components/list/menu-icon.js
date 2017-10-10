@@ -14,13 +14,13 @@ export default class MenuIcon extends React.Component {
       let color = this.props.color;
 
       switch (icon) {
-        case 'Projects':
+        case 'projects':
           return color;
-        case 'Concepts':
+        case 'concepts':
           return color;
-        case 'About':
+        case 'about':
           return color;
-        case 'Elsewhere':
+        case 'elsewhere':
           return color;
         default:
           return 'white';
@@ -36,7 +36,7 @@ export default class MenuIcon extends React.Component {
       <div className={classNames(classes)}>
         <Icon
           className='menu__icon'
-          icon={this.props.icon !== '' && this.props.icon !== null ? this.props.icon : "Blank"}
+          icon={this.props.icon !== '' && this.props.icon !== null ? this.props.icon : "blank"}
           size='x-large'
           color={iconColor()}
         />

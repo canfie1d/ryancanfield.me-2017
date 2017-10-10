@@ -3,15 +3,20 @@ import classNames  from 'classnames';
 import { connect } from 'react-redux';
 import Icon        from '../icon/icon';
 import PropTypes   from 'prop-types';
-import { browserHistory } from 'react-router';
 import BackButton from '../buttons/back-button';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = ({ browser }) => ({ browser });
 
 class Header extends React.Component {
-  
+
+  constructor(props) {
+    super(props);
+    this.onBackClick = this.onBackClick.bind(this);
+  }
+
   onBackClick() {
-    browserHistory.push('/');
+    this.props.history.push('/');
   }
 
   renderIcon() {
@@ -31,19 +36,19 @@ class Header extends React.Component {
     ];
 
     return (
-        <header className='header'>
-            <div className={classNames(classes)}>
-                <BackButton onClick={this.onBackClick} extraSmall={true} />
-                <h1 className='page__header__title'>{this.props.title}</h1>
-                {this.renderIcon()}
-            </div>
-        </header>
+      <header className='header'>
+        <div className={classNames(classes)}>
+          <BackButton onClick={this.onBackClick} extraSmall={true} />
+          <h1 className='page__header__title'>{this.props.title}</h1>
+          {this.renderIcon()}
+        </div>
+      </header>
     );
   }
 
 };
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
 
 Header.PropTypes = {
   title     : PropTypes.string,

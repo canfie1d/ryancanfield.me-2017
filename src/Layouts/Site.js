@@ -13,7 +13,7 @@ export default class site extends React.Component {
   }
 
   componentDidMount() {
-   // calculate the responsive state after the component has been mounted
+    // calculate the responsive state after the component has been mounted
     window.addEventListener('keydown', this.showFocusOutline);
     window.addEventListener('mousemove', this.hideFocusOutline);
   }

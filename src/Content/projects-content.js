@@ -1,5 +1,4 @@
 import React        from 'react';
-import ReactDOM     from 'react-dom';
 import { connect }  from 'react-redux';
 import Display      from '../Components/display/display';
 import List         from '../Components/list/list';
@@ -10,13 +9,14 @@ const mapStateToProps = ({ browser }) => ({ browser });
 class ProjectsContent extends React.Component {
 
   componentDidMount() {
-    var component = ReactDOM.findDOMNode(this);
+    var component = this.domNode;
 
     component.style.opacity = 0;
     window.requestAnimationFrame(() => {
       component.style.transition = 'opacity 2500ms';
       component.style.opacity = 1;
     });
+
   }
 
   renderDisplay() {
@@ -37,7 +37,7 @@ class ProjectsContent extends React.Component {
 
   render() {
     return (
-      <main className='page__content'>
+      <main className='page__content' ref={(main) => { this.domNode = main; }}>
         {this.renderDisplay()}
         {this.renderSubtitle()}
         <List listItems={CLIENTS} />

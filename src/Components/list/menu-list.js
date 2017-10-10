@@ -1,5 +1,5 @@
 import React              from 'react';
-import { Link }           from 'react-router';
+import { Link }           from 'react-router-dom';
 import { connect }        from 'react-redux';
 import { toggleMenuItem } from '../../Actions/menu-actions';
 import MenuIcon           from './menu-icon.js';
@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleMenuItem: (item) => dispatch(toggleMenuItem(item))
   };
-}
+};
 
 class MenuList extends React.Component {
   constructor (props) {
@@ -67,7 +67,7 @@ class MenuList extends React.Component {
               onMouseOut={this.inactiveMenuItem}
               onMouseDown={this.inactiveMenuItem}
               onTouchStart={this.inactiveMenuItem}
-              >
+            >
               {this.props.menuItems[i].title}
             </Link>
           </li>
@@ -82,7 +82,7 @@ class MenuList extends React.Component {
     if (this.props.browser.greaterThan.extraSmall) {
       return (
         <MenuIcon
-          icon={this.props.currentMenuItem}
+          icon={this.props.currentMenuItem.toLowerCase()}
           color={this.props.currentMenuItem ? this.props.currentMenuItem.toLowerCase() : null}
           menuHovered={this.props.currentMenuItem !== ''}
         />

@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "helpful-react-scripts": "1.0.7",
+    "helpful-react-scripts": "1.1.12",
     "lodash": "^4.17.4",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.0",
     "redux-responsive": "^4.1.1",
     "webfontloader": "^1.6.27"
   },
   "dependencies": {
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

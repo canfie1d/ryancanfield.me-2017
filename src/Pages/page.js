@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-/* eslint-disable no-unused-vars */
+import { withRouter } from 'react-router';
+
 import About from './about';
 import Concepts from './concepts';
 import Elsewhere from './elsewhere';
@@ -9,31 +10,29 @@ import Projects from './projects';
 import Secret from './secret';
 import heartImg from '../Assets/images/heart.png';
 
-/* eslint-enable no-unused-vars */
-
-export default class Page extends React.Component {
+class Page extends React.Component {
 
   renderPage(currentPage) {
     switch (currentPage) {
-      case 'Concepts':
-        return <Concepts />;
-      case 'Projects':
-        return <Projects />;
-      case 'About':
-        return <About />;
-      case 'Elsewhere':
-        return <Elsewhere />;
+      case 'concepts':
+        return <Concepts {...this.props} />;
+      case 'projects':
+        return <Projects {...this.props} />;
+      case 'about':
+        return <About {...this.props} />;
+      case 'elsewhere':
+        return <Elsewhere {...this.props} />;
       case 'secret':
-        return <Secret />;
+        return <Secret {...this.props} />;
       default:
-        return <Menu />;
+        return <Menu {...this.props} />;
     }
 
   }
 
   renderHeart() {
     const itemCollected = localStorage.getItem("itemCollected");
-    
+
     if (itemCollected === 'heart') {
       return (
         <div className='heart-container'>
@@ -60,3 +59,5 @@ export default class Page extends React.Component {
     );
   }
 };
+
+export default withRouter(Page);

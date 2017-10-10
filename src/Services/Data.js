@@ -1,26 +1,22 @@
 export const NAV_ITEMS = [
   {
     title    : 'Projects',
-    url      : 'Projects',
-    icon     : 'Projects',
+    url      : 'projects',
     external : false
   },
   {
     title    : 'Concepts',
-    url      : 'Concepts',
-    icon     : 'Concepts',
+    url      : 'concepts',
     external : false
   },
   {
     title    : 'About Me',
-    url      : 'About',
-    icon     : 'About',
+    url      : 'about',
     external : false
   },
   {
     title    : 'Elsewhere',
-    url      : 'Elsewhere',
-    icon     : 'Elsewhere',
+    url      : 'elsewhere',
     external : false
   }
 ];
@@ -130,6 +126,20 @@ export const PROJECTS = [
 
 export const CARD_LINKS = [
   {
+    title       : 'Shopify React Scripts',
+    description : 'Bespoke Shopify/React Projects in Minutes',
+    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/shopify-react.png',
+    url         : 'https://medium.com/helpful-human/shopify-react-scripts-6e717791d7b4',
+    length      : '2 min read'
+  },
+  {
+    title       : 'Improving Teamwork through Knowledge Sharing',
+    description : 'Internal meetings for team unity',
+    imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/tobythealien.jpg',
+    url         : 'https://medium.com/helpful-human/improving-teamwork-through-knowledge-sharing-e3c6d53e6409',
+    length      : '3 min read'
+  },
+  {
     title       : 'SVG icon sets in React with Rollup',
     description : 'Follow up to "Embedded SVG icon sets and Reactjs"',
     imageUrl    : 'https://s3-us-west-2.amazonaws.com/ryancanfield.me-images/Link+Images/svg-rollup.png',
@@ -176,25 +186,25 @@ export const CARD_LINKS = [
 export const ELSEWHERE_ITEMS = [
   {
     title    : 'Email',
-    icon     : 'Email',
+    icon     : 'email',
     url      : 'mailto:ryancanfield@me.com',
     external : true
   },
   {
     title    : 'Github',
-    icon     : 'Github',
+    icon     : 'github',
     url      : 'http://www.github.com/canfie1d',
     external : true
   },
   {
     title    : 'Twitter',
-    icon     : 'Twitter',
+    icon     : 'twitter',
     url      : 'http://www.twitter.com/canfie1d',
     external : true
   },
   {
     title    : 'LinkedIn',
-    icon     : 'LinkedIn',
+    icon     : 'linkedIn',
     url      : 'http://www.linkedin.com/in/ryanmcanfield',
     external : true
   }

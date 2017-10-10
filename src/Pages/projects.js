@@ -1,5 +1,4 @@
 import React              from 'react';
-import { browserHistory } from 'react-router';
 import { connect }        from 'react-redux';
 import BackButton         from '../Components/buttons/back-button';
 import Header             from '../Components/regions/header';
@@ -10,8 +9,13 @@ const mapStateToProps = ({ browser }) => ({ browser });
 
 class ProjectsPage extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.onBackClick = this.onBackClick.bind(this);
+  }
+
   onBackClick() {
-    browserHistory.push('/');
+    this.props.history.push('/');
   }
 
   render() {
@@ -19,7 +23,7 @@ class ProjectsPage extends React.Component {
       <div key='projects-page' className='page__content-container'>
         <Header
           title={this.props.browser.greaterThan.mediumSmall ? 'Projects' : 'Clients'}
-          icon='Projects'
+          icon='projects'
         />
         <ProjectsContent />
         <Footer>

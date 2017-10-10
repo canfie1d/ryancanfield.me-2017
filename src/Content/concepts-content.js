@@ -1,18 +1,18 @@
 import React    from 'react';
-import ReactDOM from 'react-dom';
 import CardLink from '../Components/cards/card-link';
 import { CARD_LINKS } from '../Services/Data';
 
 export default class ConceptsContent extends React.Component {
 
   componentDidMount() {
-    var component=ReactDOM.findDOMNode(this);
+    var component = this.domNode;
 
-    component.style.opacity=0;
+    component.style.opacity = 0;
     window.requestAnimationFrame(() => {
-      component.style.transition='opacity 2500ms';
-      component.style.opacity=1;
+      component.style.transition = 'opacity 2500ms';
+      component.style.opacity = 1;
     });
+
   }
 
   renderCardLinks() {
@@ -38,7 +38,7 @@ export default class ConceptsContent extends React.Component {
 
   render() {
     return (
-      <main className='page__content'>
+      <main className='page__content' ref={(main) => { this.domNode = main; }}>
         <ul className='card__list'>
           {this.renderCardLinks()}
         </ul>

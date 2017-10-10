@@ -1,22 +1,22 @@
 import React    from 'react';
-import ReactDOM from 'react-dom';
 import Button   from '../Components/buttons/button';
 
 export default class AboutContent extends React.Component {
 
   componentDidMount() {
-    var component = ReactDOM.findDOMNode(this);
+    var component = this.domNode;
 
     component.style.opacity = 0;
     window.requestAnimationFrame(() => {
       component.style.transition = 'opacity 2500ms';
       component.style.opacity = 1;
     });
+
   }
 
   render() {
     return (
-      <main className='page__content page__content--p-width'>
+      <main className='page__content page__content--p-width' ref={(main) => { this.domNode = main; }}>
         <h2 className='page__subtitle'>Work</h2>
         <p className='page__p'>
           Currently, I specialize in user interface design & front-end development at <a target='_blank' rel='noopener noreferrer' href='http://helpfulhuman.com' className='page__inline-a'>Helpful Human</a>. Previously, I was a UI engineer at <a target='_blank' rel='noopener noreferrer' href='http://www.synapsestudios.com' className='page__inline-a'>Synapse Studios</a> and prior to that, I was a designer for the <a target='_blank' href='http://www.azstatefair.com' rel='noopener noreferrer' className='page__inline-a'>Arizona State Fair</a> in Phoenix, AZ.

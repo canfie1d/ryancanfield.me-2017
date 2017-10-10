@@ -9,7 +9,7 @@ export default class ElsewherePage extends React.Component {
       <div key='elsewhere-page' className='page__content-container'>
         <Header
           title='Elsewhere'
-          icon='Elsewhere'
+          icon='elsewhere'
         />
         <ElsewhereContent />
       </div>
